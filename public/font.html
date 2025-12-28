@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Aesthetic Font Playground</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importazione Google Fonts Selezionati per Siti di Libri -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@300;500&family=Inter:wght@300;400&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --beige: #FDFBF7;
+            --olive: #4A5D23;
+            --dark-olive: #2C3325;
+            --border: #E6E2D3;
+        }
+
+        body {
+            background-color: var(--beige);
+            color: var(--dark-olive);
+        }
+
+        .font-card:hover {
+            border-color: var(--olive);
+            transform: translateY(-2px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--beige); }
+        ::-webkit-scrollbar-thumb { background: var(--olive); border-radius: 10px; }
+
+        /* Utility classes per i font */
+        .f-playfair { font-family: 'Playfair Display', serif; }
+        .f-garamond { font-family: 'EB Garamond', serif; }
+        .f-baskerville { font-family: 'Libre Baskerville', serif; }
+        .f-lora { font-family: 'Lora', serif; }
+        .f-merriweather { font-family: 'Merriweather', serif; }
+        .f-cormorant { font-family: 'Cormorant Garamond', serif; }
+        .f-cinzel { font-family: 'Cinzel', serif; }
+        .f-montserrat { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="p-4 md:p-12 transition-all">
+
+    <header class="max-w-6xl mx-auto mb-16 border-b border-[#E6E2D3] pb-8 text-center md:text-left">
+        <h1 class="f-playfair text-5xl font-bold mb-4">Bookish Font Playground</h1>
+        <p class="f-montserrat text-[#6B705C] uppercase tracking-widest text-xs font-bold">Guida tipografica per siti editoriali e letterari</p>
+    </header>
+
+    <!-- Playground Interattivo -->
+    <section class="max-w-6xl mx-auto mb-20">
+        <div class="bg-white/50 border border-[#E6E2D3] p-8 rounded-xl shadow-sm">
+            <h2 class="f-montserrat uppercase tracking-widest text-xs font-bold mb-6 text-[#4A5D23]">Area di Test Live</h2>
+            <textarea 
+                id="tester" 
+                class="w-full bg-transparent border-none focus:ring-0 text-3xl md:text-5xl leading-tight resize-none h-40 f-playfair italic"
+                placeholder="Scrivi qui il titolo del tuo libro..."
+            >Il silenzio tra le righe</textarea>
+            
+            <div class="flex flex-wrap gap-4 mt-8 pt-6 border-t border-[#E6E2D3]">
+                <button onclick="changeFont('f-playfair')" class="px-4 py-2 border border-[#E6E2D3] rounded-full text-xs font-bold hover:bg-[#4A5D23] hover:text-white transition-all">PLAYFAIR</button>
+                <button onclick="changeFont('f-garamond')" class="px-4 py-2 border border-[#E6E2D3] rounded-full text-xs font-bold hover:bg-[#4A5D23] hover:text-white transition-all">EB GARAMOND</button>
+                <button onclick="changeFont('f-cormorant')" class="px-4 py-2 border border-[#E6E2D3] rounded-full text-xs font-bold hover:bg-[#4A5D23] hover:text-white transition-all">CORMORANT</button>
+                <button onclick="changeFont('f-baskerville')" class="px-4 py-2 border border-[#E6E2D3] rounded-full text-xs font-bold hover:bg-[#4A5D23] hover:text-white transition-all">BASKERVILLE</button>
+                <button onclick="changeFont('f-lora')" class="px-4 py-2 border border-[#E6E2D3] rounded-full text-xs font-bold hover:bg-[#4A5D23] hover:text-white transition-all">LORA</button>
+                <button onclick="changeFont('f-cinzel')" class="px-4 py-2 border border-[#E6E2D3] rounded-full text-xs font-bold hover:bg-[#4A5D23] hover:text-white transition-all">CINZEL (EPIC)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogo Font -->
+    <section class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Playfair Display -->
+            <div class="font-card bg-white border border-[#E6E2D3] p-8 rounded-lg transition-all">
+                <span class="text-[10px] uppercase tracking-tighter text-[#8F9680] font-bold">Stile: High Contrast Serif</span>
+                <h3 class="f-playfair text-3xl mt-4 mb-2">Playfair Display</h3>
+                <p class="f-lora text-sm text-[#6B705C] leading-relaxed">
+                    Elegante e sofisticato. Perfetto per titoli di alto livello, ricorda la stampa di lusso del XVIII secolo.
+                </p>
+                <div class="mt-6 flex flex-col gap-2">
+                    <div class="f-playfair italic text-2xl">L'eleganza del classico</div>
+                    <div class="f-playfair font-bold text-2xl">Titoli Bold</div>
+                </div>
+            </div>
+
+            <!-- EB Garamond -->
+            <div class="font-card bg-white border border-[#E6E2D3] p-8 rounded-lg transition-all">
+                <span class="text-[10px] uppercase tracking-tighter text-[#8F9680] font-bold">Stile: Old Style Serif</span>
+                <h3 class="f-garamond text-3xl mt-4 mb-2">EB Garamond</h3>
+                <p class="f-garamond text-sm text-[#6B705C] leading-relaxed">
+                    Il font definitivo per il corpo del testo. Accademico, leggibile e senza tempo.
+                </p>
+                <div class="mt-6 flex flex-col gap-2">
+                    <div class="f-garamond italic text-2xl">L'inchiostro su carta</div>
+                    <div class="f-garamond text-2xl">Testo armonioso</div>
+                </div>
+            </div>
+
+            <!-- Cormorant Garamond -->
+            <div class="font-card bg-white border border-[#E6E2D3] p-8 rounded-lg transition-all">
+                <span class="text-[10px] uppercase tracking-tighter text-[#8F9680] font-bold">Stile: Editorial Chic</span>
+                <h3 class="f-cormorant text-3xl mt-4 mb-2">Cormorant</h3>
+                <p class="f-cormorant text-sm text-[#6B705C] leading-relaxed">
+                    Sottile e affilato. Perfetto per citazioni o menu di navigazione minimalisti.
+                </p>
+                <div class="mt-6 flex flex-col gap-2">
+                    <div class="f-cormorant italic font-light text-3xl">Minimalismo Poetico</div>
+                </div>
+            </div>
+
+            <!-- Libre Baskerville -->
+            <div class="font-card bg-white border border-[#E6E2D3] p-8 rounded-lg transition-all">
+                <span class="text-[10px] uppercase tracking-tighter text-[#8F9680] font-bold">Stile: Traditional / Cozy</span>
+                <h3 class="f-baskerville text-2xl mt-4 mb-2">Libre Baskerville</h3>
+                <p class="f-baskerville text-sm text-[#6B705C] leading-relaxed">
+                    Solido e accogliente. Dà un senso di autorità ma è più morbido del Garamond.
+                </p>
+                <div class="mt-6 flex flex-col gap-2">
+                    <div class="f-baskerville text-2xl">Storie della buonanotte</div>
+                </div>
+            </div>
+
+            <!-- Lora -->
+            <div class="font-card bg-white border border-[#E6E2D3] p-8 rounded-lg transition-all">
+                <span class="text-[10px] uppercase tracking-tighter text-[#8F9680] font-bold">Stile: Contemporary Serif</span>
+                <h3 class="f-lora text-3xl mt-4 mb-2">Lora</h3>
+                <p class="f-lora text-sm text-[#6B705C] leading-relaxed">
+                    Una via di mezzo tra classico e moderno. Eccellente per blog e articoli lunghi.
+                </p>
+                <div class="mt-6 flex flex-col gap-2">
+                    <div class="f-lora italic text-2xl">Scrittura Digitale</div>
+                </div>
+            </div>
+
+            <!-- Cinzel -->
+            <div class="font-card bg-white border border-[#E6E2D3] p-8 rounded-lg transition-all">
+                <span class="text-[10px] uppercase tracking-tighter text-[#8F9680] font-bold">Stile: Epic / Monumental</span>
+                <h3 class="f-cinzel text-2xl mt-4 mb-2">Cinzel</h3>
+                <p class="f-cinzel text-sm text-[#6B705C] leading-relaxed">
+                    Ispirato alle iscrizioni romane. Ideale per generi Fantasy, Storico o loghi.
+                </p>
+                <div class="mt-6 flex flex-col gap-2">
+                    <div class="f-cinzel font-bold text-xl tracking-widest">REGNO DI ATHENA</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Suggerimenti Accoppiamenti -->
+    <section class="max-w-6xl mx-auto mt-24 pb-24">
+        <h2 class="f-playfair text-3xl mb-12 italic border-b border-[#E6E2D3] pb-4">Accoppiamenti Consigliati</h2>
+        
+        <div class="space-y-16">
+            <!-- Pairing 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h4 class="f-montserrat uppercase text-[10px] font-bold tracking-[0.3em] mb-4 text-[#4A5D23]">Opzione 1: Il Classico Moderno</h4>
+                    <p class="text-sm text-[#8F9680]">Titoli: <span class="font-bold text-[#2C3325]">Playfair Display</span> + Body: <span class="font-bold text-[#2C3325]">Lora</span></p>
+                </div>
+                <div class="bg-white p-8 rounded border border-[#E6E2D3]">
+                    <h2 class="f-playfair text-3xl mb-4 italic">Il risveglio dei giganti</h2>
+                    <p class="f-lora text-base leading-relaxed text-[#6B705C]">
+                        Nelle profondità della foresta antica, dove i rami si intrecciano come dita d'argento, i libri prendono vita. Ogni pagina è un respiro di storia che attende solo di essere ascoltato.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pairing 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h4 class="f-montserrat uppercase text-[10px] font-bold tracking-[0.3em] mb-4 text-[#4A5D23]">Opzione 2: L'Accademico Minimalista</h4>
+                    <p class="text-sm text-[#8F9680]">Titoli: <span class="font-bold text-[#2C3325]">Montserrat (Sans)</span> + Body: <span class="font-bold text-[#2C3325]">EB Garamond</span></p>
+                </div>
+                <div class="bg-white p-8 rounded border border-[#E6E2D3]">
+                    <h2 class="f-montserrat uppercase tracking-[0.2em] text-xl font-medium mb-4">Volume I: Archivi Antichi</h2>
+                    <p class="f-garamond text-xl leading-relaxed text-[#6B705C]">
+                        La conoscenza è l'unico tesoro che si moltiplica quando viene condiviso. Esplora le edizioni limitate della nostra libreria curata dai migliori esperti del settore internazionale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function changeFont(fontClass) {
+            const tester = document.getElementById('tester');
+            // Rimuovi tutte le classi font esistenti
+            tester.classList.remove('f-playfair', 'f-garamond', 'f-baskerville', 'f-lora', 'f-merriweather', 'f-cormorant', 'f-cinzel');
+            // Aggiungi la nuova
+            tester.classList.add(fontClass);
+        }
+    </script>
+</body>
+</html>
