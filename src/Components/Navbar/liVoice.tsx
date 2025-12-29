@@ -10,7 +10,7 @@ interface LiVoiceProps {
 const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive }) => {
   const navigate=useNavigate();
   return (
-    <li className="flex sm:flex-row flex-col items-center justify-center gap-1 p-2 rounded-md cursor-pointer"
+    <li className="flex sm:flex-row flex-col items-center transition-all justify-center gap-2 p-2 rounded-md cursor-pointer"
     onClick={() => {
       const path = name.toLowerCase().replace(" ", "-");
       navigate(path === "discover" ? "/" : `/${path}`);
@@ -18,15 +18,15 @@ const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive }) => {
       <span
         className={`
           p-2 rounded-xl
-          ${isActive ? 'bg-[var(--olive-green-dark)] text-white' : 'bg-[var(--bg-gray-light)] text-[var(--bg-gray-dark)]'}
+          ${isActive ? 'bg-(--text-accent) text-white' : 'bg-(--bg-gray-light) text-(--bg-gray-dark)'}
         `}
       >
         {svg}
       </span>
       <span
         className={`
-          sm:block text-xs sm:text-sm uppercase tracking-[0.2em] font-medium
-          ${isActive ? 'text-[var(--olive-green-dark)]' : 'text-[var(--text-gray-dark)]'}
+          sm:block text-xs sm:text-base sm:tracking-[0.05em] f-poppins
+          ${isActive ? 'text(--text-accent) font-bold' : 'text-(--text-gray-dark) font-medium'}
         `}
       >
         {name}
