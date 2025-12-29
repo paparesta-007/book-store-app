@@ -4,6 +4,9 @@ import { useState } from 'react'
 import type { User } from "firebase/auth";
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from './Components/Navbar/Header/Header';
+import DiscoverPage from './Components/DiscoverPage/DiscoverPage';
+import SearchPage from './Components/Searchpage/SearchPage';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -17,16 +20,19 @@ function App() {
         <div className="min-h-screen flex flex-col sm:flex-row">
           <Navbar />
 
-          <main className="flex-1 p-4 flex items-center justify-center bg-[var(--bg-primary)]">
-            <Routes>
-              <Route path="/" element={<h2 className="text-2xl">Discover Page</h2>} />
-              <Route path="/my-space" element={<h2 className="text-2xl">My Space Page</h2>} />
-              <Route path="/categories" element={<h2 className="text-2xl">Categories Page</h2>} />
-              <Route path="/wishlist" element={<h2 className="text-2xl">Wishlist Page</h2>} />
-
-              {/* 404 Route */}
-              <Route path="*" element={<h2 className="text-2xl">404 - Page Not Found</h2>} />
-            </Routes>
+          <main className="flex-1 p-4 flex flex-col items-center bg-(--bg-primary)">
+            <Header />
+            <div className="w-full mt-4 flex-1 bg-(--bg-primary) p-4 rounded-lg border border-gray-400">
+              <Routes>
+                <Route path="/" element={<DiscoverPage />} />
+                <Route path="/my-space" element={<h2 className="text-2xl">My Space Page</h2>} />
+                <Route path="/categories" element={<h2 className="text-2xl">Categories Page</h2>} />
+                <Route path="/wishlist" element={<h2 className="text-2xl">Wishlist Page</h2>} />
+                <Route path='/search/:query' element={<SearchPage/>} />
+                {/* 404 Route */}
+                <Route path="*" element={<h2 className="text-2xl">404 - Page Not Found</h2>} />
+              </Routes>
+            </div>
           </main>
         </div>
       </Router>

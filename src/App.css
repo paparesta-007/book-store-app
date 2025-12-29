@@ -1,20 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@300;500&family=Inter:wght@300;400&family=Cinzel:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
   --bg-primary: #f0ede1;
   --bg-secondary: #ffffff;
   --text-primary: #212121;
 
-  --bg-gray-light: #eeeeee;
+  --bg-gray-light: #ebe8e8;
   --bg-gray-dark: #777676;
 
-  --text-gray-light: #9e9e9e;
-  --text-gray-dark: #333333;
+  --text-gray-light: #919090;
+  --text-gray-medium: #707070;
+  --text-gray-dark: #535353;
 
-  --olive-green: hsl(120, 20%, 35%);
-  --olive-green-light: hsl(120, 20%, 45%);
-  --olive-green-dark: hsl(120, 20%, 25%);
+  --text-accent: #ff500a;       /* The signature Wattpad Orange */
+  --text-accent-light: hsl(30, 90%, 60%); /* A brighter, hover-state version */
+  --text-accent-dark: hsl(30, 90%, 40%);  /* A deeper tone for contrast/active states */
+
+  --olive-green: #556b2f;
+  --olive-green-light: #c4d3b2;
+  --olive-green-dark: #394b1f;
 }
 
 .f-playfair {
@@ -23,7 +28,59 @@
 .f-montserrat {
   font-family: 'Montserrat', sans-serif;
 }
+.f-ebgaramond {
+  font-family: 'EB Garamond', serif;
+}
+.f-libre-baskerville {
+  font-family: 'Libre Baskerville', serif;
+}
+.f-lora {
+  font-family: 'Lora', serif;
+}
+.f-merriweather {
+  font-family: 'Merriweather', serif;
+}
+.f-cormorant-garamond {
+  font-family: 'Cormorant Garamond', serif;
+}
+.f-inter {
+  font-family: 'Inter', sans-serif;
+}
+.f-cinzel {
+  font-family: 'Cinzel', serif;
+}
+.f-poppins {
+  font-family: 'Poppins', sans-serif;
+}
 .activeVoice {
   background-color: var(--olive-green-light);
   color: var(--olive-green-dark);
+}
+
+.animateSlideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animateSlideUp {
+  animation: slideUp 0.3s ease-out forwards;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
