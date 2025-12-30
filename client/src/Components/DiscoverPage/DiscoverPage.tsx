@@ -1,8 +1,12 @@
 import React from "react";
-import Searchbar from "./Searchbar";
+
 import { useState, useEffect } from "react";
 import BookComponent from "../BookComponent/BookComponent";
-import { ArrowBendDownRightIcon } from "@phosphor-icons/react";
+
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
+import DailyCarousel from "./DailyCarousel/DailyCarousel";
+
+
 const DiscoverPage: React.FC = () => {
 
   const [booksId, setBooksId] = useState([]);
@@ -36,32 +40,40 @@ const DiscoverPage: React.FC = () => {
     }
   }, [booksId]);
 
-  const getGreeting = () => {
-    const today = new Date();
-    const hours = today.getHours();
-    let greeting = "Good morning";
-    if (hours >= 12 && hours < 18) {
-      greeting = "Good afternoon";
-    } else if (hours >= 18 || hours < 4) {
-      greeting = "Good evening";
-    }
-    return greeting;
-  }
+
+
   return (
     <div className="w-full h-full ">
-      <h1 className="text-3xl f-lora italic ">{getGreeting()}, User!</h1>
-      <p className="mb-4 text-(--text-gray-light) f-poppins mt-2">Explore latest books and authors</p>
-      <Searchbar />
-      <div>
+      <DailyCarousel />
+      <div className="px-4 md:px-8 lg:px-16 py-8 space-y-6">
         <div className="flex items-center justify-between mt-8">
-          <h2 className="text-2xl f-poppins text-(--text-gray-dark) mt-6 mb-4">Romance Books</h2>
-          <button className="flex items-center justify-center gap-2 px-4 py-2 bg-[#272a34] f-poppins text-white rounded-full">See All
-            <ArrowBendDownRightIcon size={24} />
-          </button>
+          <h2 className="text-2xl f-libre-baskerville text-(--text-gray-dark) mt-6 mb-4">Romance Books</h2>
+
+          <div className="flex gap-0">
+            <button className="flex items-center justify-center gap-2 px-4 py-2 text-[#272a34] hover:bg-(--text-primary) hover:text-gray-200 transition-colors duration-75 cursor-pointer f-poppins  rounded-full
+            ">See All
+              {/* <ArrowBendDownRightIcon size={24} /> */}
+
+            </button>
+            <button className="flex items-center justify-center gap-2 px-2 py-2 text-[#272a34] hover:bg-(--text-primary) hover:text-gray-200 transition-colors duration-75 cursor-pointer f-poppins  rounded-full">
+              <CaretLeftIcon size={24} />
+
+            </button>
+            <button className="flex items-center justify-center gap-2 px-2 py-2 text-[#272a34] hover:bg-(--text-primary) hover:text-gray-200 transition-colors duration-75 cursor-pointer f-poppins rounded-full">
+              <CaretRightIcon size={24} />
+
+            </button>
+          </div>
         </div>
-        <div className="flex flex-wrap sm:flex-row flex-col gap-4">
+        <div className="
+            flex flex-row overflow-x-auto gap-4 pb-4 
+            scrollbar-hide /* Opzionale: nasconde la barra brutta su mobile */
+            sm:gap-24
+          ">
           {books.map((book: any) => (
-            <BookComponent key={book.id} book={book} />
+            <div key={book.id} className="">
+              <BookComponent book={book} />
+            </div>
           ))}
         </div>
       </div>

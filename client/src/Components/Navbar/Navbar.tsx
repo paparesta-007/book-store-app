@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import LiVoice from "./liVoice";
-import { BooksIcon, CompassIcon, FolderIcon, ListStarIcon, SidebarSimpleIcon, SketchLogoIcon, SquaresFourIcon, XIcon } from "@phosphor-icons/react";
+import { BooksIcon, CompassIcon, FolderIcon, ListStarIcon, SidebarSimpleIcon, SquaresFourIcon } from "@phosphor-icons/react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 const Navbar: React.FC = () => {
@@ -33,12 +33,14 @@ const Navbar: React.FC = () => {
       className={`
         fixed bottom-4 left-4 right-4
         h-18 flex items-center
-        bg-(--bg-primary)
+        bg-(--bg-secondary)
         border-r border-(--bg-gray-light)
-
+        z-50
         rounded-2xl
         shadow-lg
-        sm:static sm:h-screen 
+        sm:static 
+        sm:top-0
+        sm:h-screen 
         sm:flex-col sm:justify-start
         sm:rounded-none sm:shadow-none
         sm:left-0 sm:right-auto sm:bottom-0
@@ -73,10 +75,9 @@ const Navbar: React.FC = () => {
       <hr className="hidden sm:block w-3/4 border-t border-(--bg-gray-light) my-6" />
       <div className="hidden sm:flex flex-col absolute bottom-4  gap-4"
         onClick={() => setIsMinimized(!isMinimized)}>
-          <button className={`flex ${!isMinimized ? "px-6 py-2" : "p-2"} bg-[#6649ad] text-[#edd5ee] items-center rounded-full gap-2`}>
+          {/* <button className={`flex ${!isMinimized ? "px-6 py-2" : "p-2"} bg-[#6649ad] text-[#edd5ee] items-center rounded-full gap-2`}>
             <SketchLogoIcon size={24} weight="light" /><span className={`f-poppin ${isMinimized ? "hidden" : ""}`}>Upgrade to PRO</span>
-            {/* <XIcon size={18} className="text-white absolute top-1 right-1" /> */}
-          </button>
+          </button> */}
         <div className="flex gap-2 items-center justify-center">
           <SidebarSimpleIcon size={24} className="text-(--text-primary)" />
           <span className={`f-poppins text-(--text-primary) ${isMinimized ? "hidden" : ""}`}>More</span>
