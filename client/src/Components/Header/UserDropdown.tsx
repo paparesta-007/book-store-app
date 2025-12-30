@@ -1,9 +1,9 @@
 import { GearIcon, InfoIcon, SignOutIcon, SketchLogoIcon, UserIcon } from "@phosphor-icons/react";
 import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr";
 import React, { useContext, useEffect, useState } from "react";
-import { googleProvider,auth } from "../../../library/firebase";
+import { auth } from "../../library/firebase";
 import { useNavigate } from "react-router-dom";
-import UserContext from "../../../context/UserContext";
+import UserContext from "../../context/UserContext";
 interface UserDropdownProps {
     nome?: string;
 }
@@ -63,16 +63,16 @@ const UserDropdown: React.FC<UserDropdownProps> = () => {
                 )}
 
                 {/* Nome Utente visibile */}
-                <span className="text-base font-medium text-(--text-primary) group-hover:text-[var(--text-accent)]">
+                <span className="sm:block hidden text-base font-medium text-(--text-primary) group-hover:text--(-text-accent)">
                     {userName}
                 </span>
 
                 {/* Icona */}
-                <CaretDownIcon size={18} weight="bold" className={isOpen ? "rotate-[-180deg] transition-all" : "transition-all"} />
+                <CaretDownIcon size={18} weight="bold" className={isOpen ? "-rotate-180 transition-all" : "transition-all"} />
             </button>
             {isOpen && <div className=" animateSlideDown">
                 {/* Dropdown Menu Placeholder */}
-                <a href="#" className="absolute right-0 mt-2 w-48 bg-[var(--bg-secondary)] border border-gray-200 rounded-md shadow-lg py-2 z-50 ">
+                <a href="#" className="absolute right-0 mt-2 w-48 bg-(--bg-secondary) border border-gray-200 rounded-md shadow-lg py-2 z-50 ">
                     <div className="px-4 py-2 flex gap-2 items-center text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
                         <UserIcon size={24} weight="bold" />Profile
                     </div>

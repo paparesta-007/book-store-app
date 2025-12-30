@@ -76,7 +76,7 @@ app.get("/api/searchBooks", async (req, res) => {
         return res.status(400).json({ error: "Manca il termine di ricerca" });
     }
     const baseUrl = "https://www.googleapis.com/books/v1/volumes";
-    let url = `${baseUrl}?q=${encodeURIComponent(searchTerm as string)}&key=${process.env.GOOGLEBOOKS_API_KEY}`;
+    let url = `${baseUrl}?q=${encodeURIComponent(searchTerm as string)}`;
     if (maxResults) {
         url += `&maxResults=${encodeURIComponent(maxResults as string)}`;
     }
@@ -121,7 +121,7 @@ app.get("/api/getBooksBySubject", async (req, res) => {
     const baseUrl = "https://www.googleapis.com/books/v1/volumes";
     
     // Iniziamo con il parametro 'q' che contiene il subject
-    let apiUrl = `${baseUrl}?q=subject:${encodeURIComponent(subject as string)}&key=${apiKey}`;
+    let apiUrl = `${baseUrl}?q=subject:${encodeURIComponent(subject as string)}`;
 
     // Aggiungiamo gli altri parametri solo se esistono nella richiesta GET
     if (maxResults) {
@@ -151,7 +151,7 @@ app.get("/api/getSingleBook/:id", async (req, res) => {
     const bookId = req.params.id;
     // GET https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=yourAPIKey
     const apiKey = process.env.GOOGLEBOOKS_API_KEY;
-    const apiUrl = `https://www.googleapis.com/books/v1/volumes/${encodeURIComponent(bookId)}?key=${apiKey}`;
+    const apiUrl = `https://www.googleapis.com/books/v1/volumes/${encodeURIComponent(bookId)}`;
     try {
         const response = await fetch(apiUrl);
         const data: any = await response.json();
