@@ -5,9 +5,10 @@ interface LiVoiceProps {
   svg: React.ReactNode;
   name: string;
   isActive: boolean;
+  isMinimized: boolean;
 }
 
-const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive }) => {
+const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive, isMinimized }) => {
   const navigate=useNavigate();
   return (
     <li className="flex sm:flex-row flex-col items-center transition-all justify-center gap-2 p-2 rounded-md cursor-pointer"
@@ -24,8 +25,8 @@ const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive }) => {
         {svg}
       </span>
       <span
-        className={`
-          sm:block text-xs sm:text-base sm:tracking-[0.05em] f-poppins
+        className={`${isMinimized ? "hidden" : " sm:block "}
+         text-xs sm:text-base sm:tracking-[0.05em] f-poppins
           ${isActive ? 'text(--text-accent) font-bold' : 'text-(--text-primary) font-medium'}
         `}
       >
