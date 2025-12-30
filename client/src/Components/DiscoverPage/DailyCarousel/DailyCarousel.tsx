@@ -1,102 +1,89 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../../../context/UserContext";
-import { BookOpenTextIcon } from "@phosphor-icons/react";
+import { ArrowUpRightIcon, BookOpenTextIcon } from "@phosphor-icons/react";
 
 export const DailyCarousel: React.FC = () => {
-
-    // mockup reading book
     const [currentBook, setCurrentBook] = useState<any>(null);
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/getSingleBook/${"x8oVEQAAQBAJ"}`);
-                // Mockup book ID
+                const response = await fetch(`http://localhost:3000/api/getSingleBook/x8oVEQAAQBAJ`);
                 const bookData = await response.json();
                 setCurrentBook(bookData);
             } catch (error) {
-                console.error("Errore nel recupero dei dettagli dei libri:", error);
+                console.error("Errore:", error);
             }
         };
         fetchBookDetails();
-
     }, []);
-    const { user } = useContext(UserContext);
-    const getGreeting = () => {
-        const today = new Date();
-        const hours = today.getHours();
-        let greeting = "Good morning";
-        if (hours >= 12 && hours < 18) {
-            greeting = "Good afternoon";
-        } else if (hours >= 18 || hours < 4) {
-            greeting = "Good evening";
-        }
-        return greeting;
-    }
-    return (
-        <div className="flex flex-col lg:flex-row gap-12 py-8 px-4 items-start">
-            
-            {/* Sezione Sinistra: Benvenuto e Citazione */}
-            <div className="flex-1 space-y-6">
-                <header>
-                    <h1 className="text-4xl md:text-5xl f-lora">
-                        <span className="text-(--text-gray-dark) font-light block text-2xl mb-1 italic">
-                            {getGreeting()},
-                        </span>
-                        <span className="font-semibold text-(--text-primary)">
-                            {user?.displayName || "Reader"}!
-                        </span>
-                    </h1>
-                </header>
 
-                <blockquote className="relative pl-6 border-l-2 border-(--text-accent)/30">
-                    <p className="text-lg md:text-xl text-(--text-gray-light) italic leading-relaxed max-w-xl">
-                        "Leggendo non cerchiamo idee nuove, ma pensieri già da noi pensati, 
-                        che acquistano sulla pagina un suggello di conferma..."
+    const getGreeting = () => {
+        const hours = new Date().getHours();
+        if (hours < 12) return "Good morning";
+        if (hours < 18) return "Good afternoon";
+        return "Good evening";
+    }
+
+    return (
+        <div className="flex flex-col lg:flex-row gap-16 py-12 items-center lg:items-start max-w-7xl mx-auto">
+            
+            {/* Sezione Sinistra: Minimal Header */}
+            <div className="flex-1 space-y-8">
+                <header className="space-y-4">
+                    <h1 className="text-5xl md:text-6xl f-playfair tracking-tight text-(--text-primary) font-light">
+                        Hello, <span className="font-bold">{user?.displayName?.split(" ")[0] || "Reader"}</span>.
+                    </h1>
+                    <p className="f-poppins text-lg text-(--text-gray-light) leading-relaxed max-w-lg">
+                        {getGreeting()}. It's a beautiful day to lose yourself in a story. 
+                        We've curated a few titles that match your current mood.
                     </p>
-                    <footer className="mt-4">
-                        <span className="text-(--text-accent) font-medium tracking-wide uppercase text-sm">
-                            — Cesare Pavese
-                        </span>
-                    </footer>
-                </blockquote>
+                </header>
+                
+                <button className="group cursor-pointer flex items-center gap-3 text-white bg-(--text-primary) px-6 py-3 justify-center rounded-full font-semibold f-poppins
+                 transition-all uppercase text-xs tracking-[0.25em]">
+                    Explore Releases <ArrowUpRightIcon size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </button>
             </div>
 
-            {/* Sezione Destra: Card libro */}
-            <div className="w-full lg:w-137.5">
-                <h2 className="text-xs uppercase tracking-[0.2em] text-(--text-gray-light) font-bold mb-6">
-                    In Reading Right Now
-                </h2>
+            {/* Sezione Destra: Minimal Book Card */}
+            <div className="w-full lg:w-125">
+                <div className="flex justify-between items-end mb-4">
+                    <h2 className="text-[10px] uppercase tracking-[0.3em] text-(--text-gray-light) font-bold">
+                        Current Reading
+                    </h2>
+                    <span className="text-[10px] text-(--text-gray-light) font-medium italic">Chapter 24/45</span>
+                </div>
                 
                 {currentBook ? (
-                    <div className="group relative flex gap-6 p-5  rounded-2xl border border-(--bg-gray-light) ">
-                        {/* Copertina con ombra accentuata */}
-                        <div className="shrink-0  transition-transform duration-300 ">
+                    <div className=" relative bg-(--bg-secondary) rounded-lg border border-(--border-third) flex flex-col sm:flex-row gap-8 p-8">
+                        {/* Immagine con posizionamento "floating" */}
+                        <div className="shrink-0 transition-transform duration-500">
                             <img 
-                                src={currentBook.volumeInfo.imageLinks.large} 
+                                src={currentBook.volumeInfo.imageLinks?.large || currentBook.volumeInfo.imageLinks?.thumbnail} 
                                 alt={currentBook.volumeInfo.title} 
-                                className="w-40  object-cover rounded-lg  border border-white/10" 
+                                className="w-32 sm:w-36 h-auto object-cover rounded-xl shadow-2xl" 
                             />
                         </div>
 
-                        <div className="flex flex-col justify-between py-2 flex-1">
-                            <div>
-                                <h3 className="text-lg font-bold f-poppins leading-tight line-clamp-2">
+                        <div className="flex flex-col justify-between flex-1 space-y-6">
+                            <div className="space-y-2">
+                                <h3 className="text-xl font-semibold f-poppins text-(--text-primary) leading-snug line-clamp-2">
                                     {currentBook.volumeInfo.title}
                                 </h3>
-                                <p className="text-sm text-(--text-gray-light) mt-1 italic">
+                                <p className="text-sm text-(--text-gray-light) f-poppins">
                                     {currentBook.volumeInfo.authors?.join(", ")}
                                 </p>
                             </div>
 
-                            <div className="space-y-3">
-                                <div className="space-y-1.5">
-                                    <div className="flex justify-between text-xs font-medium">
-                                        <span className="text-(--text-gray-light) uppercase tracking-wider">Progress</span>
-                                        <span className="text-(--text-primary)">14%</span>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <div className="flex justify-between text-[10px] font-bold uppercase tracking-tighter text-(--text-gray-light)">
+                                        <span>Completion</span>
+                                        <span>14%</span>
                                     </div>
-                                    {/* Progress Bar Migliorata */}
-                                    <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                    <div className="w-full h-[3px] bg-gray-100 rounded-full overflow-hidden">
                                         <div 
                                             className="h-full bg-(--text-primary) rounded-full" 
                                             style={{ width: '14%' }}
@@ -104,19 +91,20 @@ export const DailyCarousel: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <button className="w-full flex items-center gap-2 justify-center py-2.5 px-4 bg-(--text-accent) text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-opacity cursor-pointer shadow-sm">
-                                    <BookOpenTextIcon size={24} weight="fill"  />Continue Reading
+                                <button className="w-full flex items-center gap-2 justify-center py-3.5 bg-(--text-accent) text-white text-xs font-bold uppercase tracking-widest rounded-2xl hover:opacity-90 transition-all shadow-lg shadow-gray-200">
+                                    <BookOpenTextIcon size={16} weight="bold" /> Resume
                                 </button>
                             </div>
                         </div>
                     </div>
                 ) : (
-                    <div className="h-44 border-2 border-dashed border-(--bg-gray-light) rounded-2xl flex items-center justify-center text-(--text-gray-light)">
-                        Select a book to start reading
+                    <div className="h-64 border border-dashed border-gray-200 rounded-[32px] flex items-center justify-center text-(--text-gray-light) text-sm f-poppins">
+                        No book in progress
                     </div>
                 )}
             </div>
         </div>
     );
 };
+
 export default DailyCarousel;
