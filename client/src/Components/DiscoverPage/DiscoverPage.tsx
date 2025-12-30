@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Searchbar from "./Searchbar";
 import { useState, useEffect } from "react";
 import BookComponent from "../BookComponent/BookComponent";
+import UserContext from "../../context/UserContext";
 const DiscoverPage: React.FC = () => {
-
+  const {user}=useContext(UserContext);
   const [booksId, setBooksId] = useState([]);
   const [books, setBooks] = useState<any[]>([]);
   useEffect(() => {
@@ -48,7 +49,7 @@ const DiscoverPage: React.FC = () => {
   }
   return (
     <div className="w-full h-full ">
-      <h1 className="text-3xl f-lora italic ">{getGreeting()}, User!</h1>
+      <h1 className="text-3xl f-lora italic ">{getGreeting()}, {user?.displayName || "User"}!</h1>
       <p className="mb-4 text-(--text-gray-light) f-poppins mt-2">Explore latest books and authors</p>
       <Searchbar />
       <div>
