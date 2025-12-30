@@ -10,7 +10,9 @@ interface UserContextType {
 
 const UserContext = createContext<UserContextType>({
   user: null,
-  login: () => { },
+  login: () => {
+    
+   },
   logout: () => { },
 });
 export default UserContext
