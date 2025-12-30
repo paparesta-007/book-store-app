@@ -43,40 +43,50 @@ const DiscoverPage: React.FC = () => {
 
 
   return (
-    <div className="w-full h-full ">
+    <div className="w-full min-h-screen pb-20">
       <DailyCarousel />
-      <div className="px-4 md:px-8 lg:px-16 py-8 space-y-6">
-        <div className="flex items-center justify-between mt-8">
-          <h2 className="text-2xl f-libre-baskerville text-(--text-gray-dark) mt-6 mb-4">Romance Books</h2>
 
-          <div className="flex gap-0">
-            <button className="flex items-center justify-center gap-2 px-4 py-2 text-[#272a34] hover:bg-(--text-primary) hover:text-gray-200 transition-colors duration-75 cursor-pointer f-poppins  rounded-full
-            ">See All
-              {/* <ArrowBendDownRightIcon size={24} /> */}
+      {/* Sezione Libri con più spazio */}
+      <section className="px-6 md:px-12 lg:px-6 space-y-1">
+        
+        {/* Header Sezione Minimal */}
+        <div className="flex items-end justify-between  pb-4">
+          <div className="space-y-1">
+            <h2 className="text-xs uppercase tracking-[0.4em] text-(--text-gray-light) font-bold">
+                Curated Collection
+            </h2>
+            {/* <h3 className="text-3xl f-lora italic text-(--text-primary)">Romance Selections</h3> */}
+          </div>
 
+          <div className="flex items-center gap-4">
+            <button className="text-xs uppercase tracking-widest font-bold py-2 px-4 rounded-full hover:bg-(--text-primary)
+             hover:text-white text-(--text-primary) transition-colors">
+                See All
             </button>
-            <button className="flex items-center justify-center gap-2 px-2 py-2 text-[#272a34] hover:bg-(--text-primary) hover:text-gray-200 transition-colors duration-75 cursor-pointer f-poppins  rounded-full">
-              <CaretLeftIcon size={24} />
-
-            </button>
-            <button className="flex items-center justify-center gap-2 px-2 py-2 text-[#272a34] hover:bg-(--text-primary) hover:text-gray-200 transition-colors duration-75 cursor-pointer f-poppins rounded-full">
-              <CaretRightIcon size={24} />
-
-            </button>
+            <div className="flex gap-2">
+                <button className="p-2 rounded-full hover:bg-(--text-primary) hover:text-white transition-colors">
+                    <CaretLeftIcon size={20} />
+                </button>
+                <button className="p-2 rounded-full hover:bg-(--text-primary) hover:text-white transition-colors">
+                    <CaretRightIcon size={20} />
+                </button>
+            </div>
           </div>
         </div>
+
+        {/* Lista Scorrevole con segnale visivo (Snap) */}
         <div className="
-            flex flex-row overflow-x-auto gap-4 pb-4 
-            scrollbar-hide /* Opzionale: nasconde la barra brutta su mobile */
-            sm:gap-24
+            flex flex-row overflow-x-auto gap-8 sm:gap-12 py-8 px-4
+            scrollbar-hide snap-x snap-mandatory
           ">
           {books.map((book: any) => (
-            <div key={book.id} className="">
+            <div key={book.id} className="snap-start shrink-0">
               <BookComponent book={book} />
             </div>
           ))}
+          <div className="shrink-0 w-20" />
         </div>
-      </div>
+      </section>
     </div>
   );
 }

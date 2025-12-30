@@ -1,9 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@300;500&family=Inter:wght@300;400&family=Cinzel:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 :root {
+  /* --bg-primary:hsl(40, 13%, 95%);
+  --bg-secondary:  hsl(0, 0%, 100%);
+  --text-primary: #272a34;
+
+  --bg-gray-light: #d3d3d3;
+  --bg-gray-dark: #777676;
+  --bg-third:#fbf9f7;
+
+  --border-third: #d4c1aa;
+
+
+
+  --text-gray-light: #919090;
+  --text-gray-medium: #707070;
+  --text-gray-dark: #535353;
+
+  --text-accent: #334238;     
+  --text-accent-light: hsl(30, 90%, 60%); 
+  --text-accent-dark: hsl(30, 90%, 40%);  
+
+  --olive-green: #556b2f;
+  --olive-green-light: #c4d3b2;
+  --olive-green-dark: #394b1f; */
+
+
+
+
+
   --bg-primary:hsl(47, 33%, 92%);
-  /*   --bg-primary:hsl(47, 50%, 95%); */
   --bg-secondary:  hsl(47, 50%, 95%);
   --text-primary: #272a34;
 
@@ -19,13 +50,13 @@
   --text-gray-medium: #707070;
   --text-gray-dark: #535353;
 
-  --text-accent: #e77072;       /* The signature Wattpad Orange */
-  --text-accent-light: hsl(30, 90%, 60%); /* A brighter, hover-state version */
-  --text-accent-dark: hsl(30, 90%, 40%);  /* A deeper tone for contrast/active states */
+  --text-accent: #e77072;      
+  --text-accent-light: hsl(30, 90%, 60%);
+  --text-accent-dark: hsl(30, 90%, 40%); 
 
   --olive-green: #556b2f;
   --olive-green-light: #c4d3b2;
-  --olive-green-dark: #394b1f;
+  --olive-green-dark: #394b1f; 
 }
 
 .f-playfair {
@@ -57,6 +88,13 @@
 }
 .f-poppins {
   font-family: 'Poppins', sans-serif;
+}
+
+.f-sansita {
+  font-family: 'Sansita', sans-serif;
+}
+.f-cause {
+  font-family: 'Cause', sans-serif;
 }
 .activeVoice {
   background-color: var(--olive-green-light);
