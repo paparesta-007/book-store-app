@@ -1,16 +1,17 @@
 import React from "react";
 import LiVoice from "./liVoice";
-import { CompassIcon, FolderIcon, ListStarIcon, SquaresFourIcon } from "@phosphor-icons/react";
+import { CompassIcon, FolderIcon, ListStarIcon, SidebarSimpleIcon, SquaresFourIcon } from "@phosphor-icons/react";
 import { useLocation } from "react-router-dom";
-
+import { useState } from "react";
 const Navbar: React.FC = () => {
+  const [isMinimized, setIsMinimized] = useState(false);
   const location=useLocation();
   const {pathname} = location;
    const voices = [
-    { id: "discover", name: "Discover", svg: <CompassIcon size={26} weight="fill" />, path: "/" },
-    { id: "my-space", name: "My space", svg: <FolderIcon size={26} weight="fill" />, path: "/my-space" },
-    { id: "categories", name: "Categories", svg: <SquaresFourIcon size={26} weight="fill" />, path: "/categories" },
-    { id: "wishlist", name: "Wishlist", svg: <ListStarIcon size={26} weight="fill" />, path: "/wishlist" },
+    { id: "discover", name: "Discover", svg: <CompassIcon size={26}   />, path: "/" },
+    { id: "my-space", name: "My space", svg: <FolderIcon size={26}   />, path: "/my-space" },
+    { id: "categories", name: "Categories", svg: <SquaresFourIcon size={26}   />, path: "/categories" },
+    { id: "wishlist", name: "Wishlist", svg: <ListStarIcon size={26}   />, path: "/wishlist" },
   ];
 
   
@@ -19,8 +20,8 @@ const Navbar: React.FC = () => {
       className="
         fixed bottom-4 left-4 right-4
         h-18 flex items-center
-        bg-(--bg-secondary)
-      
+        bg-(--bg-primary)
+        border-r border-[var(--bg-gray-light)]
 
         rounded-2xl
         shadow-lg
@@ -49,6 +50,11 @@ const Navbar: React.FC = () => {
         })}
       </ul>
       <hr className="hidden sm:block w-3/4 border-t border-(--bg-gray-light) my-6" />
+      <div className="hidden absolute bottom-4 sm:flex gap-2 items-center justify-center "
+        onClick={()=>setIsMinimized(!isMinimized)}>
+        <SidebarSimpleIcon size={24} />
+        <span className={`f-poppins text-(--text-primary) ${isMinimized ? "hidden" : ""}`}>More</span>
+      </div>
     </nav>
   );
 };

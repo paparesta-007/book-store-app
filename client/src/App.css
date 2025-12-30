@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 :root {
-  --bg-primary:#f2eae1;
+  --bg-primary:#f1eee3;
   --bg-secondary:  #fbf9f7;
-  --text-primary: #212121;
+  --text-primary: #272a34;
 
-  --bg-gray-light: #ebe8e8;
+  --bg-gray-light: #d3d3d3;
   --bg-gray-dark: #777676;
 
   --text-gray-light: #919090;
   --text-gray-medium: #707070;
   --text-gray-dark: #535353;
 
-  --text-accent: #ff500a;       /* The signature Wattpad Orange */
+  --text-accent: #e77072;       /* The signature Wattpad Orange */
   --text-accent-light: hsl(30, 90%, 60%); /* A brighter, hover-state version */
   --text-accent-dark: hsl(30, 90%, 40%);  /* A deeper tone for contrast/active states */
 

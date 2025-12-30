@@ -18,7 +18,7 @@ const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive }) => {
       <span
         className={`
           p-2 rounded-xl
-          ${isActive ? 'bg-(--text-accent) text-white' : 'bg-(--bg-gray-light) text-(--bg-gray-dark)'}
+          ${isActive ? 'bg-(--text-accent) text-white' : ' text-(--text-primary)'}
         `}
       >
         {svg}
@@ -26,7 +26,7 @@ const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive }) => {
       <span
         className={`
           sm:block text-xs sm:text-base sm:tracking-[0.05em] f-poppins
-          ${isActive ? 'text(--text-accent) font-bold' : 'text-(--text-gray-dark) font-medium'}
+          ${isActive ? 'text(--text-accent) font-bold' : 'text-(--text-primary) font-medium'}
         `}
       >
         {name}

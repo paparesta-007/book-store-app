@@ -2,6 +2,7 @@ import React from "react";
 import Searchbar from "./Searchbar";
 import { useState, useEffect } from "react";
 import BookComponent from "../BookComponent/BookComponent";
+import { ArrowBendDownRightIcon } from "@phosphor-icons/react";
 const DiscoverPage: React.FC = () => {
 
   const [booksId, setBooksId] = useState([]);
@@ -52,7 +53,12 @@ const DiscoverPage: React.FC = () => {
       <p className="mb-4 text-(--text-gray-light) f-poppins mt-2">Explore latest books and authors</p>
       <Searchbar />
       <div>
-        <h2 className="text-2xl f-poppins text-(--text-gray-dark) mt-6 mb-4">Romance Books</h2>
+        <div className="flex items-center justify-between mt-8">
+          <h2 className="text-2xl f-poppins text-(--text-gray-dark) mt-6 mb-4">Romance Books</h2>
+          <button className="flex items-center justify-center gap-2 px-4 py-2 bg-[#272a34] f-poppins text-white rounded-full">See All
+            <ArrowBendDownRightIcon size={24} />
+          </button>
+        </div>
         <div className="flex flex-wrap sm:flex-row flex-col gap-4">
           {books.map((book: any) => (
             <BookComponent key={book.id} book={book} />
