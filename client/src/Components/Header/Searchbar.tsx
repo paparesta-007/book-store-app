@@ -39,7 +39,7 @@ const Searchbar: React.FC = () => {
         }
     }, [debouncedSearchTerm, navigate, categories]);
     return (
-        <div className="w-[90%] sm:w-107.5 flex flex-row items-center relative 
+        <div className="w-[80%] sm:w-107.5 flex flex-row items-center relative  
         text-[var(--text-primary)] px-1 rounded-full gap-2">
 
 
