@@ -9,6 +9,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./library/firebase";
 import Login from './Components/Login/Login';
 import MainLayout from './Components/Layout/MainLayout';
+import BookDetails from './Components/BookDetails/BookDetails';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -52,6 +53,7 @@ function App() {
             <Route path="/categories" element={<h2>Categories Page</h2>} />
             <Route path="/wishlist" element={<h2>Wishlist Page</h2>} />
             <Route path="/search/:query" element={<SearchPage />} />
+            <Route path='/book/:id' element={<BookDetails  />} />
           </Route>
 
           {/* ROTTA SENZA NAVBAR */}

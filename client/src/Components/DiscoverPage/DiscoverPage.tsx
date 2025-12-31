@@ -43,11 +43,11 @@ const DiscoverPage: React.FC = () => {
 
 
   return (
-    <div className="w-full min-h-screen pb-20">
+    <div className="w-full min-h-screen pb-20 px-5 sm:p-0">
       <DailyCarousel />
 
       {/* Sezione Libri con più spazio */}
-      <section className="px-6 md:px-12 lg:px-6 space-y-1">
+      <section className="px-0 md:px-12 lg:px-6 space-y-1">
         
         {/* Header Sezione Minimal */}
         <div className="flex items-end justify-between  pb-4">
@@ -76,7 +76,7 @@ const DiscoverPage: React.FC = () => {
 
         {/* Lista Scorrevole con segnale visivo (Snap) */}
         <div className="
-            flex flex-row overflow-x-auto gap-8 sm:gap-12 py-8 px-4
+            flex flex-row overflow-x-auto gap-8 sm:gap-12 py-8 
             scrollbar-hide snap-x snap-mandatory
           ">
           {books.map((book: any) => (
