@@ -1,11 +1,11 @@
 import { ArrowUpRightIcon, BookmarkSimple, ShareNetwork, ShoppingBag } from "@phosphor-icons/react";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const BookDetails: React.FC = () => {
     const { id } = useParams();
     const [book, setBook] = useState<any>(null);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchBooksDetails = async () => {
             try {
@@ -54,7 +54,10 @@ const BookDetails: React.FC = () => {
 
                         {/* Action Bar */}
                         <div className="flex flex-wrap items-center gap-6 pt-8 border-t justify-between border-black/5">
-                            <button className="px-10 py-4 bg-[#1a1a1a] text-white rounded-full text-sm font-semibold tracking-[0.1em] hover:bg-black transition-all active:scale-95 flex items-center gap-3">
+                            <button className="px-10 py-4 bg-[#1a1a1a] text-white rounded-full text-sm font-semibold tracking-widest hover:bg-black transition-all active:scale-95 flex items-center gap-3"
+                            onClick={
+                                ()=>navigate("/add-tracking/"+id)
+                            }>
                                 START READING <ArrowUpRightIcon size={24} />
                             </button>
                             

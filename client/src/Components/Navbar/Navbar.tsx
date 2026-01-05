@@ -31,13 +31,16 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`
-        fixed bottom-4 left-4 right-4
+        fixed bottom-4 
+        left-[50%] translate-x-[-50%]
+        sm:translate-x-0 
         h-18 flex items-center
         bg-(--bg-secondary)
-        border-r border-(--bg-gray-light)
+        
         z-50
         rounded-2xl
         shadow-lg
+        w-[calc(80%-2rem)]
         sm:static 
         sm:top-0
         sm:h-screen 
@@ -72,7 +75,7 @@ const Navbar: React.FC = () => {
           );
         })}
       </ul>
-      <hr className="hidden sm:block w-3/4 border-t border-(--bg-gray-light) my-6" />
+      <hr className="hidden sm:block w-3/4 border-t border-(--text-accent) my-6" />
       <div className="hidden sm:flex flex-col absolute bottom-4  gap-4"
         onClick={() => setIsMinimized(!isMinimized)}>
           {/* <button className={`flex ${!isMinimized ? "px-6 py-2" : "p-2"} bg-[#6649ad] text-[#edd5ee] items-center rounded-full gap-2`}>

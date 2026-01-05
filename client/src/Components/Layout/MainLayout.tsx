@@ -18,7 +18,7 @@ const MainLayout = () => {
   }
   return (
     // h-screen e overflow-hidden impediscono a tutta la pagina di scrollare
-    <div className="h-screen w-full bg-(--bg-primary) flex flex-col sm:flex-row overflow-hidden">
+    <div className="h-screen w-full bg-(--bg-primary) flex flex-col sm:flex-row overflow-hiddenz">
       
       {/* Navbar: ora ha h-full (altezza fissa) */}
       <Navbar />
