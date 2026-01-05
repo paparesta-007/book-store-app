@@ -10,6 +10,8 @@ import { auth } from "./library/firebase";
 import Login from './Components/Login/Login';
 import MainLayout from './Components/Layout/MainLayout';
 import BookDetails from './Components/BookDetails/BookDetails';
+import BookAddTracking from './Components/BookAddTracking/BookAddTracking';
+import CategoriesPage from './Components/CategoriesPage/CategoriesPage';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -50,10 +52,11 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<DiscoverPage />} />
             <Route path="/my-space" element={<h2>My Space Page</h2>} />
-            <Route path="/categories" element={<h2>Categories Page</h2>} />
             <Route path="/wishlist" element={<h2>Wishlist Page</h2>} />
             <Route path="/search/:query" element={<SearchPage />} />
             <Route path='/book/:id' element={<BookDetails  />} />
+            <Route path='/add-tracking/:id' element={<BookAddTracking  />} />
+            <Route path='/categories' element={<CategoriesPage />} />
           </Route>
 
           {/* ROTTA SENZA NAVBAR */}

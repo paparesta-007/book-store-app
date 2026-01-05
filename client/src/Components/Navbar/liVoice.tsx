@@ -11,7 +11,7 @@ interface LiVoiceProps {
 const LiVoice: React.FC<LiVoiceProps> = ({ svg, name, isActive, isMinimized }) => {
   const navigate=useNavigate();
   return (
-    <li className="flex sm:flex-row flex-col items-center transition-all justify-center gap-2 p-2 rounded-md cursor-pointer"
+    <li className="flex sm:flex-row flex-col items-center transition-all justify-center sm:gap-2 sm:p-2 rounded-md cursor-pointer"
     onClick={() => {
       const path = name.toLowerCase().replace(" ", "-");
       navigate(path === "discover" ? "/" : `/${path}`);
